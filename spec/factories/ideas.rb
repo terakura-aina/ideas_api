@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :idea do
-    categoryId { "" }
+    association :category
     body { "MyText" }
   end
 end
