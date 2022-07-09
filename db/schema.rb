@@ -10,10 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_06_125520) do
+ActiveRecord::Schema.define(version: 2022_07_09_125149) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name", null: false
+    t.index ["name"], name: "index_categories_on_name", unique: true
   end
 
   create_table "ideas", force: :cascade do |t|
