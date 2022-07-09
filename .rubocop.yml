@@ -205,3 +205,6 @@ Documentation:
   Enabled: false
 Metrics/AbcSize:
   Max: 25
+Metrics/BlockLength:
+  Exclude:
+    - "spec/**/*"

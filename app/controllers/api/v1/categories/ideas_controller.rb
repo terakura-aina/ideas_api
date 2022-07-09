@@ -24,7 +24,7 @@ module Api
         def create
           @category = Category.create(name: params[:category_name]) if @category.nil?
           Idea.create(category_id: @category.id, body: params[:body])
-          render json: { status: 201 }
+          render status: :created, json: { status: 201 }
         rescue => e
           render status: :internal_server_error, json: { status: 500, message: e.message.to_s }
         end
