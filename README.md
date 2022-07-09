@@ -1,24 +1,104 @@
-# README
+# :memo: アイデア管理API
+アイデアを管理するAPIです
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 概要
+アイデアの種類（カテゴリ）とその詳細（アイデア）を登録できます
 
-Things you may want to cover:
+## APIの種類
+* アイデアを登録するAPI
+* 登録したアイデアを取得するAPI
 
-* Ruby version
+## 使い方
 
-* System dependencies
+### :bulb: アイデアを登録するAPI
+  * エンドポイントURL  `GET /api/v1/categories/ideas`
+* パラメータ
+  * category_name と body はどちらも入力必須です
 
-* Configuration
+| パラメータ名 | 説明 | 指定できる値 | 複数指定可否 | 値の例 |
+| ----      | ---- | ----      | ----       | ----  |
+| category_name | カテゴリーの名前を入力します | 文字列 | 不可 | 家庭菜園 |
+| body | アイデアの内容を入力します | 文字列 | 不可 | プチトマト |
 
-* Database creation
+* リクエスト例
+```
+/categories/ideas?category_name=家庭菜園&body=プチトマト
+```
 
-* Database initialization
+* レスポンス例（成功時）
+```
+{
+  status: 200
+}
+```
 
-* How to run the test suite
+* レスポンス例（失敗時）
+```
+{
+  status: 422
+}
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+* エラータイプ
 
-* Deployment instructions
+| ステータスコード | エラーステータス         | 説明　|
+| ----         | ----                 | ---- |
+| 422          | Unprocessable Entity | バリデーションエラーです<br>パラメータが足りないときなどに 422 エラーを返します |
 
-* ...
+<br>
+
+### :orange_book: 登録したアイデアを取得するAPI
+  * エンドポイントURL  `POST /api/v1/categories/ideas`
+* パラメータ
+  * category_name の入力は任意です
+  * catebory_name の指定があった場合には指定されたカテゴリのアイデアを全て返却します
+  * catebory_name の指定がなかった場合には登録されているカテゴリ全てのアイデア全てを返却します
+
+| パラメータ名 | 説明 | 指定できる値 | 複数指定可否 | 値の例 |
+| ----      | ---- | ----      | ----       | ----  |
+| category_name | カテゴリーの名前を入力します | 文字列 | 不可 | プチトマト |
+
+* リクエスト例
+```
+/categories/ideas?category_name=アプリ
+```
+
+* レスポンス例（成功時）
+```
+{
+  "data": [
+    {
+      "id": 8,
+      "category": "家庭菜園",
+      "body": "プチトマト",
+      "created_at": 1657119284
+    },
+    {
+      "id": 9,
+      "category": "家庭菜園",
+      "body": "さやいんげん",
+      "created_at": 1657119291
+    },
+    {
+      "id": 10,
+      "category": "家庭菜園",
+      "body": "レタス",
+      "created_at": 1657119294
+    },
+  ],
+}
+```
+
+* レスポンス例（失敗時）
+```
+{
+  "status": 404,
+  "message": "Not Found"
+}
+```
+
+* エラータイプ
+
+| ステータスコード | エラーステータス         | 説明　|
+| ----         | ----                 | ---- |
+| 404          | Not Found | リソースが見つからない場合に 404 エラーを返します |
