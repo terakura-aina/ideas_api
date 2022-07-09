@@ -127,6 +127,8 @@ Style/StringChars: # new in 1.12
   Enabled: true
 Style/SwapValues: # new in 1.1
   Enabled: true
+Style/RescueStandardError:
+  Enabled: false
 Rails/ActionControllerTestCase: # new in 2.14
   Enabled: true
 Rails/ActiveRecordCallbacksOrder: # new in 2.7
@@ -199,3 +201,7 @@ Rails/WhereExists: # new in 2.7
   Enabled: true
 Rails/WhereNot: # new in 2.8
   Enabled: true
+Documentation:
+  Enabled: false
+Metrics/AbcSize:
+  Max: 25
