@@ -23,7 +23,7 @@
 
 * リクエスト例
 ```
-/categories/ideas?category_name=家庭菜園&body=プチトマト
+/api/v1/categories/ideas?category_name=家庭菜園&body=プチトマト
 ```
 
 * レスポンス例（成功時）
@@ -63,7 +63,7 @@
 
 * リクエスト例
 ```
-/categories/ideas?category_name=アプリ
+/api/v1/categories/ideas?category_name=アプリ
 ```
 
 * レスポンス例（成功時）
