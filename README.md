@@ -11,7 +11,8 @@
 ## 使い方
 
 ### :bulb: アイデアを登録するAPI
-  * エンドポイントURL  `GET /api/v1/categories/ideas`
+* エンドポイントURL<br>
+`GET /api/v1/categories/ideas`
 * パラメータ
   * category_name と body はどちらも入力必須です
 
@@ -48,7 +49,8 @@
 <br>
 
 ### :orange_book: 登録したアイデアを取得するAPI
-  * エンドポイントURL  `POST /api/v1/categories/ideas`
+* エンドポイントURL<br>
+`POST /api/v1/categories/ideas`
 * パラメータ
   * category_name の入力は任意です
   * catebory_name の指定があった場合には指定されたカテゴリのアイデアを全て返却します
